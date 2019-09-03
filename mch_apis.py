@@ -39,8 +39,9 @@ class MCHAPI:
     def get_hero_metadata(self, id):
         try:
             req = self.hero_metadata + str(id)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -51,8 +52,9 @@ class MCHAPI:
     def get_hero_type_metadata(self, id):
         try:
             req = self.hero_type_metadata + str(id)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -63,8 +65,9 @@ class MCHAPI:
     def get_extension_metadata(self, id):
         try:
             req = self.extension_metadata + str(id)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -75,8 +78,9 @@ class MCHAPI:
     def get_extension_type_metadata(self, id):
         try:
             req = self.extension_type_metadata + str(id)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -87,8 +91,9 @@ class MCHAPI:
     def get_skill_metadata(self, id):
         try:
             req = self.skill_metadata + str(id)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -99,8 +104,9 @@ class MCHAPI:
     def get_referral_history(self, address):
         try:
             req = self.referral_history + str(address)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -111,8 +117,9 @@ class MCHAPI:
     def get_hero_asset(self, address):
         try:
             req = self.hero_asset + str(address)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -123,8 +130,9 @@ class MCHAPI:
     def get_extension_asset(self, address):
         try:
             req = self.extension_asset + str(address)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -137,8 +145,9 @@ class MCHAPI:
     def get_user_info(self, id):
         try:
             req = self.user_info + str(id)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -149,8 +158,9 @@ class MCHAPI:
     def get_land_info(self, id):
         try:
             req = self.land_info + str(id)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
@@ -161,8 +171,9 @@ class MCHAPI:
     def get_hero_asset_info(self, id):
         try:
             req = self.hero_asset_info + str(id)
-            res = requests.get(req).json()
-            return res
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
         except Exception as e:
             self.logger.error(e)
             return None
