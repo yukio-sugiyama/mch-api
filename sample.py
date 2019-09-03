@@ -26,8 +26,9 @@ print(value)
 value = mch.get_extension_asset('0x96c4c9CD98eB02ba00F2731e4ffB965Fa2A41923')
 print(value)
 
-value = mch.get_user_info('10043')
-print(value)
+value = mch.get_user_info('10034')
+
+print(value['user_data'])
 
 value = mch.get_land_info('05')
 print(value)
