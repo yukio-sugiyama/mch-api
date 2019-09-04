@@ -21,6 +21,8 @@ class MCHAPI:
         self.user_info = 'https://www.mycryptoheroes.net/api/proxy/mch/users/'
         self.land_info = 'https://www.mycryptoheroes.net/api/proxy/mch/lands/'
         self.hero_asset_info = 'https://www.mycryptoheroes.net/api/proxy/mch/heroes/'
+        self.hero_sold_trades = 'https://www.mycryptoheroes.net/api/proxy/mch/trades/heroes/sold'
+        self.extension_sold_trades = 'https://www.mycryptoheroes.net/api/proxy/mch/trades/extensions/sold'
 
         # logger set
         # Prints logger info to terminal
@@ -171,6 +173,34 @@ class MCHAPI:
     def get_hero_asset_info(self, id):
         try:
             req = self.hero_asset_info + str(id)
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
+        except Exception as e:
+            self.logger.error(e)
+            return None
+
+
+    # トレード済みのHero一覧を取得を取得する
+    # 最大で24時間分のデータが取得できます。since、untilで期間を指定してください。
+    # since = start time(unix), until = end time(unix)
+    def get_hero_sold_trades(self, since = '', until = ''):
+        try:
+            req = self.hero_sold_trades + str(since) + str(until)
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
+        except Exception as e:
+            self.logger.error(e)
+            return None
+
+
+    # トレード済みのExtension一覧を取得を取得する
+    # 最大で24時間分のデータが取得できます。since、untilで期間を指定してください。
+    # since = start time(unix), until = end time(unix)
+    def get_extension_sold_trades(self, since = '', until = ''):
+        try:
+            req = self.extension_sold_trades + str(since) + str(until)
             res = requests.get(req)
             res.raise_for_status()
             return res.json()
