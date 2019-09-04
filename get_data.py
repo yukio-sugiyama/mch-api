@@ -14,7 +14,10 @@ class GetOwnedAssets:
 
     def get_eth(self, user_id):
         res = self.mch.get_user_info(user_id)
-        return res['user_data']['eth']
+        if 'eth' in res['user_data']:
+            return res['user_data']['eth']
+        else:
+            return ''
 
 
     def get_hero_ids_eth(self, eth):
@@ -24,7 +27,11 @@ class GetOwnedAssets:
 
     def get_hero_ids_crypto(self, user_id):
         res = self.mch.get_hero_asset_info(user_id)
-        return res['hero_ids']
+        # ヒーロー持ってないと404エラーなので
+        if res is not None:
+            return res['hero_ids']
+        else:
+            return ''
 
 
     def get_extension_ids_eth(self, eth):
@@ -36,7 +43,9 @@ class GetOwnedAssets:
 
         eth = self.get_eth(user_id)
 
-        hero_asset.extend(self.get_hero_ids_eth(eth))
+        if not eth == '':
+            hero_asset.extend(self.get_hero_ids_eth(eth))
+
         hero_asset.extend(self.get_hero_ids_crypto(user_id))
         hero_asset.sort()
 
@@ -47,7 +56,9 @@ class GetOwnedAssets:
 
         eth = self.get_eth(user_id)
 
-        extension_asset.extend(self.get_extension_ids_eth(eth))
+        if not eth == '':
+            extension_asset.extend(self.get_extension_ids_eth(eth))
+
         extension_asset.sort()
 
         return extension_asset
