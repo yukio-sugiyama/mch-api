@@ -1,5 +1,5 @@
 
-class MCHHeroeData:
+class MCHExtensionData:
 
     def __init__(self):
         self.data = None
@@ -46,7 +46,7 @@ class MCHHeroeData:
         if self.data is None:
             return None
         else:
-            return self.data['extra_data']['hero_type']
+            return self.data['extra_data']['extension_type']
 
 
     def get_name_ja(self):

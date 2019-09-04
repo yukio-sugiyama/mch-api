@@ -1,5 +1,7 @@
 # インストールした discord.py を読み込む
 import discord
+import datetime
+
 import get_data
 
 # 自分のBotのアクセストークンに置き換えてください
@@ -39,6 +41,40 @@ async def on_message(message):
 
             old_rarity = rarity
             send_message = send_message + '\n  {0} Lv.{1} '.format(name, lv)
+
+        await message.channel.send(send_message)
+
+    elif message.content.startswith('trade:hero'):
+        hero_sold_set = data.get_hero_sold()
+
+        send_message = ''
+
+        for x in hero_sold_set:
+            sold_time = x['sold_time'].strftime("%Y/%m/%d %H:%M:%S")
+            name = x['name']
+            sold_price = x['sold_price']
+            ce = x['ce']
+            seller_id = x['seller_id']
+            buyer_id = x['buyer_id']
+
+            send_message = send_message + '\n{:0} {:1} 価格:{:2,} CE:{:3,}'.format(sold_time, name, sold_price, ce)
+
+        await message.channel.send(send_message)
+
+    elif message.content.startswith('trade:extension'):
+        exte_sold_set = data.get_exte_sold()
+
+        send_message = ''
+
+        for x in exte_sold_set:
+            sold_time = x['sold_time'].strftime("%Y/%m/%d %H:%M:%S")
+            name = x['name']
+            sold_price = x['sold_price']
+            ce = x['ce']
+            seller_id = x['seller_id']
+            buyer_id = x['buyer_id']
+
+            send_message = send_message + '\n{:0} {:1} 価格:{:2,} CE:{:3,}'.format(sold_time, name, sold_price, ce)
 
         await message.channel.send(send_message)
 
