@@ -57,7 +57,7 @@ async def on_message(message):
             seller_id = x['seller_id']
             buyer_id = x['buyer_id']
 
-            send_message = send_message + '\n{:0} {:1} 価格:{:2,} CE:{:3,}'.format(sold_time, name, sold_price, ce)
+            send_message = send_message + '\n{0} {1} 価格:{2} CE:{3} 売手:{4} 買手:{5}'.format(sold_time, name, sold_price, ce, seller_id, buyer_id)
 
         await message.channel.send(send_message)
 
@@ -74,7 +74,7 @@ async def on_message(message):
             seller_id = x['seller_id']
             buyer_id = x['buyer_id']
 
-            send_message = send_message + '\n{:0} {:1} 価格:{:2,} CE:{:3,}'.format(sold_time, name, sold_price, ce)
+            send_message = send_message + '\n{0} {1} 価格:{2} CE:{3} 売手:{4} 買手:{5}'.format(sold_time, name, sold_price, ce, seller_id, buyer_id)
 
         await message.channel.send(send_message)
 
