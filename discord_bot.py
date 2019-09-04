@@ -59,7 +59,7 @@ async def on_message(message):
 
             send_message = send_message + '\n{0} {1} 価格:{2} CE:{3} 売手:{4} 買手:{5}'.format(sold_time, name, sold_price, ce, seller_id, buyer_id)
 
-            if 1800 < len(send_message)
+            if 1800 < len(send_message):
                 await message.channel.send(send_message)
                 send_message = ''
 
@@ -80,7 +80,7 @@ async def on_message(message):
 
             send_message = send_message + '\n{0} {1} 価格:{2} CE:{3} 売手:{4} 買手:{5}'.format(sold_time, name, sold_price, ce, seller_id, buyer_id)
 
-            if 1800 < len(send_message)
+            if 1800 < len(send_message):
                 await message.channel.send(send_message)
                 send_message = ''
 
