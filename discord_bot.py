@@ -52,12 +52,16 @@ async def on_message(message):
         for x in hero_sold_set:
             sold_time = x['sold_time'].strftime("%Y/%m/%d %H:%M:%S")
             name = x['name']
-            sold_price = x['sold_price']
-            ce = x['ce']
+            sold_price = '{:,}'.format(x['sold_price'])
+            ce = '{:,}'.format(x['ce'])
             seller_id = x['seller_id']
             buyer_id = x['buyer_id']
 
             send_message = send_message + '\n{0} {1} 価格:{2} CE:{3} 売手:{4} 買手:{5}'.format(sold_time, name, sold_price, ce, seller_id, buyer_id)
+
+            if 1800 < len(send_message)
+                await message.channel.send(send_message)
+                send_message = ''
 
         await message.channel.send(send_message)
 
@@ -69,12 +73,16 @@ async def on_message(message):
         for x in exte_sold_set:
             sold_time = x['sold_time'].strftime("%Y/%m/%d %H:%M:%S")
             name = x['name']
-            sold_price = x['sold_price']
-            ce = x['ce']
+            sold_price = '{:,}'.format(x['sold_price'])
+            ce = '{:,}'.format(x['ce'])
             seller_id = x['seller_id']
             buyer_id = x['buyer_id']
 
             send_message = send_message + '\n{0} {1} 価格:{2} CE:{3} 売手:{4} 買手:{5}'.format(sold_time, name, sold_price, ce, seller_id, buyer_id)
+
+            if 1800 < len(send_message)
+                await message.channel.send(send_message)
+                send_message = ''
 
         await message.channel.send(send_message)
 
