@@ -186,7 +186,17 @@ class MCHAPI:
     # since = start time(unix), until = end time(unix)
     def get_hero_sold_trades(self, since = '', until = ''):
         try:
-            req = self.hero_sold_trades + str(since) + str(until)
+            req = self.hero_sold_trades
+
+            if since != '' and until == '':
+                req = req + '?since=' + str(since)
+
+            elif since == '' and until != '':
+                req = req + '?until=' + str(until)
+
+            elif since != '' and until != '':
+                req = req + '?since=' + str(since) + '&until=' + str(until)
+
             res = requests.get(req)
             res.raise_for_status()
             return res.json()
@@ -200,7 +210,17 @@ class MCHAPI:
     # since = start time(unix), until = end time(unix)
     def get_extension_sold_trades(self, since = '', until = ''):
         try:
-            req = self.extension_sold_trades + str(since) + str(until)
+            req = self.extension_sold_trades
+
+            if since != '' and until == '':
+                req = req + '?since=' + str(since)
+
+            elif since == '' and until != '':
+                req = req + '?until=' + str(until)
+
+            elif since != '' and until != '':
+                req = req + '?since=' + str(since) + '&until=' + str(until)
+
             res = requests.get(req)
             res.raise_for_status()
             return res.json()
