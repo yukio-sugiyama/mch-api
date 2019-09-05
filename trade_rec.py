@@ -6,7 +6,7 @@ import schedule
 
 data = get_data.GetOwnedAssets()
 
-def profit_dayly():
+def trade_rec():
 
     now = datetime.datetime.now()
     old = now - datetime.timedelta(hours=24)
