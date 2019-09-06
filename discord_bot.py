@@ -28,13 +28,13 @@ async def on_message(message):
             return
 
         if message.content.startswith('asset:'):
-            id = message.content.replace('asset:', '').strip()
-            user_name = data.get_user_name(id)
+            user_id = message.content.replace('asset:', '').strip()
+            user_name = data.get_user_name(user_id)
 
-            send_message = '{0}さんのヒーロー情報取ってくるよ！'.format(user_name + '#' + id)
+            send_message = '{0}さんのヒーロー情報取ってくるよ！'.format(user_name + '#' + user_id)
             await message.channel.send(send_message)
 
-            data_set = data.get_hero_assets(id)
+            data_set = data.get_hero_assets(user_id)
 
             old_rarity = None
             send_message = ''
@@ -60,7 +60,7 @@ async def on_message(message):
             send_message = '次はエクステンション情報取ってくるよ！'
             await message.channel.send(send_message)
 
-            data_set = data.get_exte_assets(id)
+            data_set = data.get_exte_assets(user_id)
 
             old_rarity = None
             send_message = ''
@@ -87,13 +87,13 @@ async def on_message(message):
             await message.channel.send(send_message)
 
         if message.content.startswith('asset HERO:'):
-            id = message.content.replace('asset HERO:', '').strip()
-            user_name = data.get_user_name(id)
+            user_id = message.content.replace('asset HERO:', '').strip()
+            user_name = data.get_user_name(user_id)
 
-            send_message = '{0}さんのヒーロー情報取ってくるよ！'.format(user_name + '#' + id)
+            send_message = '{0}さんのヒーロー情報取ってくるよ！'.format(user_name + '#' + user_id)
             await message.channel.send(send_message)
 
-            data_set = data.get_hero_assets(id)
+            data_set = data.get_hero_assets(user_id)
 
             old_rarity = None
             send_message = ''
@@ -120,13 +120,13 @@ async def on_message(message):
             await message.channel.send(send_message)
 
         if message.content.startswith('asset EXTE:'):
-            id = message.content.replace('asset EXTE:', '').strip()
-            user_name = data.get_user_name(id)
+            user_id = message.content.replace('asset EXTE:', '').strip()
+            user_name = data.get_user_name(user_id)
 
-            send_message = '{0}さんのエクステンション情報取ってくるよ！'.format(user_name + '#' + id)
+            send_message = '{0}さんのエクステンション情報取ってくるよ！'.format(user_name + '#' + user_id)
             await message.channel.send(send_message)
 
-            data_set = data.get_exte_assets(id)
+            data_set = data.get_exte_assets(user_id)
 
             old_rarity = None
             send_message = ''
