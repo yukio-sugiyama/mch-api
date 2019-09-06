@@ -21,6 +21,7 @@ class MCHAPI:
         self.user_info = 'https://www.mycryptoheroes.net/api/proxy/mch/users/'
         self.land_info = 'https://www.mycryptoheroes.net/api/proxy/mch/lands/'
         self.hero_asset_info = 'https://www.mycryptoheroes.net/api/proxy/mch/heroes/'
+        self.extension_asset_info = 'https://www.mycryptoheroes.net/api/proxy/mch/extensions/'
         self.hero_sold_trades = 'https://www.mycryptoheroes.net/api/proxy/mch/trades/heroes/sold'
         self.extension_sold_trades = 'https://www.mycryptoheroes.net/api/proxy/mch/trades/extensions/sold'
 
@@ -173,6 +174,19 @@ class MCHAPI:
     def get_hero_asset_info(self, id):
         try:
             req = self.hero_asset_info + str(id)
+            res = requests.get(req)
+            res.raise_for_status()
+            return res.json()
+        except Exception as e:
+            self.logger.error(e)
+            return None
+
+
+    # 指定したIDのユーザーが所持するオリジナルヒーローのID一覧を取得する
+    # id = UserID
+    def get_extension_asset_info(self, id):
+        try:
+            req = self.extension_asset_info + str(id)
             res = requests.get(req)
             res.raise_for_status()
             return res.json()

@@ -4,7 +4,7 @@ import time
 import datetime
 import schedule
 
-data = get_data.GetOwnedAssets()
+data = get_data.GetData()
 
 def trade_rec():
 
