@@ -4,7 +4,7 @@ import mch_apis
 import mch_heroe
 import mch_extension
 
-class GetOwnedAssets:
+class GetData:
 
     def __init__(self):
         self.mch = mch_apis.MCHAPI()
@@ -34,9 +34,19 @@ class GetOwnedAssets:
             return ''
 
 
-    def get_extension_ids_eth(self, eth):
+    def get_exte_ids_eth(self, eth):
         res = self.mch.get_extension_asset(eth)
         return res['extension_ids']
+
+
+    def get_exte_ids_crypto(self, user_id):
+        res = self.mch.get_extension_asset_info(user_id)
+        # ヒーロー持ってないと404エラーなので
+        if res is not None:
+            return res['extension_ids']
+        else:
+            return ''
+
 
     def get_hero_ids(self, user_id):
         hero_asset = []
@@ -51,17 +61,18 @@ class GetOwnedAssets:
 
         return hero_asset
 
-    def get_extension_ids(self, user_id):
-        extension_asset = []
+    def get_exte_ids(self, user_id):
+        exte_asset = []
 
         eth = self.get_eth(user_id)
 
         if not eth == '':
-            extension_asset.extend(self.get_extension_ids_eth(eth))
+            exte_asset.extend(self.get_exte_ids_eth(eth))
 
-        extension_asset.sort()
+        exte_asset.extend(self.get_exte_ids_crypto(user_id))
+        exte_asset.sort()
 
-        return extension_asset
+        return exte_asset
 
 
     def get_hero_metadata(self, id):
@@ -92,9 +103,8 @@ class GetOwnedAssets:
             return ''
 
 
-    def get_owned_assets(self, user_id):
+    def get_hero_assets(self, user_id):
         hero_ids = self.get_hero_ids(user_id)
-        extension_ids = self.get_extension_ids(user_id)
 
         hero_data_set = []
 
@@ -119,6 +129,33 @@ class GetOwnedAssets:
             hero_data_set.append(hero_data)
 
         return hero_data_set
+
+    def get_exte_assets(self, user_id):
+        exte_ids = self.get_exte_ids(user_id)
+
+        exte_data_set = []
+
+        for id in exte_ids:
+
+            exte_metadata = self.get_exte_metadata(id)
+            self.exte.set_data(exte_metadata)
+
+            type = self.exte.get_type()
+
+            exte_type_metadata = self.get_exte_type_metadata(type)
+            self.exte.set_type_data(exte_type_metadata)
+
+            rarity = self.exte.get_rarity()
+            name = self.exte.get_name_ja()
+            id = self.exte.get_id()
+            lv = self.exte.get_lv()
+            url = self.exte.get_url()
+
+            exte_data = {'rarity':rarity, 'name':name, 'id':id, 'lv':lv}
+
+            exte_data_set.append(exte_data)
+
+        return exte_data_set
 
     def get_hero_sold(self, since = '', until = ''):
 
@@ -262,7 +299,7 @@ class GetOwnedAssets:
         exte_sold_set = []
         for x in exte_sold:
             trade_id = x['trade_id']
-            extension_id = x['extension_id']
+            exte_id = x['extension_id']
             sold_at = x['sold_at']
             price = x['price']
             ce = x['ce']
@@ -274,7 +311,7 @@ class GetOwnedAssets:
 
             sold_time = datetime.datetime.fromtimestamp(sold_at)
 
-#            exte_metadata = self.get_exte_metadata(extension_id)
+#            exte_metadata = self.get_exte_metadata(exte_id)
 #            self.exte.set_data(exte_metadata)
 
 #            rarity = self.exte.get_rarity()
@@ -286,7 +323,7 @@ class GetOwnedAssets:
 #            name = self.exte.get_name_ja()
 
             exte_sold = {'trade_id':trade_id
-                        , 'extension_id':extension_id
+                        , 'exte_id':exte_id
                         , 'sold_at':sold_at
                         , 'price':price
                         , 'ce':ce
