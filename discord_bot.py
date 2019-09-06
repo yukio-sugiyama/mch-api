@@ -12,54 +12,6 @@ ENABLE_CH = [618639034490552340]
 client = discord.Client()
 data = get_data.GetData()
 
-async def post_hero_asset(id):
-    data_set = data.get_hero_assets(id)
-
-    old_rarity = None
-    send_message = ''
-
-    for x in data_set:
-        rarity = x['rarity']
-        name = x['name']
-        id = x['id']
-        lv = x['lv']
-
-        if not old_rarity == rarity:
-            send_message = send_message + '\n----------\n{0}\n----------'.format(rarity)
-
-        old_rarity = rarity
-        send_message = send_message + '\n  {0} Lv.{1} '.format(name, lv)
-
-        if 1800 < len(send_message):
-            await message.channel.send(send_message)
-            send_message = ''
-
-    await message.channel.send(send_message)
-
-async def post_exte_asset(id):
-    data_set = data.get_exte_assets(id)
-
-    old_rarity = None
-    send_message = ''
-
-    for x in data_set:
-        rarity = x['rarity']
-        name = x['name']
-        id = x['id']
-        lv = x['lv']
-
-        if not old_rarity == rarity:
-            send_message = send_message + '\n----------\n{0}\n----------'.format(rarity)
-
-        old_rarity = rarity
-        send_message = send_message + '\n  {0} Lv.{1} '.format(name, lv)
-
-        if 1800 < len(send_message):
-            await message.channel.send(send_message)
-            send_message = ''
-
-    await message.channel.send(send_message)
-
 # 起動時に動作する処理
 @client.event
 async def on_ready():
@@ -82,12 +34,54 @@ async def on_message(message):
             send_message = '{0}さんのヒーロー情報取ってくるよ！'.format(user_name + '#' + id)
             await message.channel.send(send_message)
 
-            post_hero_asset(id)
+            data_set = data.get_hero_assets(id)
+
+            old_rarity = None
+            send_message = ''
+
+            for x in data_set:
+                rarity = x['rarity']
+                name = x['name']
+                id = x['id']
+                lv = x['lv']
+
+                if not old_rarity == rarity:
+                    send_message = send_message + '\n----------\n{0}\n----------'.format(rarity)
+
+                old_rarity = rarity
+                send_message = send_message + '\n  {0} Lv.{1} '.format(name, lv)
+
+                if 1800 < len(send_message):
+                    await message.channel.send(send_message)
+                    send_message = ''
+
+            await message.channel.send(send_message)
 
             send_message = '次はエクステンション情報取ってくるよ！'
             await message.channel.send(send_message)
 
-            post_exte_asset(id)
+            data_set = data.get_exte_assets(id)
+
+            old_rarity = None
+            send_message = ''
+
+            for x in data_set:
+                rarity = x['rarity']
+                name = x['name']
+                id = x['id']
+                lv = x['lv']
+
+                if not old_rarity == rarity:
+                    send_message = send_message + '\n----------\n{0}\n----------'.format(rarity)
+
+                old_rarity = rarity
+                send_message = send_message + '\n  {0} Lv.{1} '.format(name, lv)
+
+                if 1800 < len(send_message):
+                    await message.channel.send(send_message)
+                    send_message = ''
+
+            await message.channel.send(send_message)
 
             send_message = '取ってきました！'
             await message.channel.send(send_message)
@@ -99,7 +93,28 @@ async def on_message(message):
             send_message = '{0}さんのヒーロー情報取ってくるよ！'.format(user_name + '#' + id)
             await message.channel.send(send_message)
 
-            post_hero_asset(id)
+            data_set = data.get_hero_assets(id)
+
+            old_rarity = None
+            send_message = ''
+
+            for x in data_set:
+                rarity = x['rarity']
+                name = x['name']
+                id = x['id']
+                lv = x['lv']
+
+                if not old_rarity == rarity:
+                    send_message = send_message + '\n----------\n{0}\n----------'.format(rarity)
+
+                old_rarity = rarity
+                send_message = send_message + '\n  {0} Lv.{1} '.format(name, lv)
+
+                if 1800 < len(send_message):
+                    await message.channel.send(send_message)
+                    send_message = ''
+
+            await message.channel.send(send_message)
 
             send_message = '取ってきました！'
             await message.channel.send(send_message)
@@ -111,7 +126,28 @@ async def on_message(message):
             send_message = '{0}さんのエクステンション情報取ってくるよ！'.format(user_name + '#' + id)
             await message.channel.send(send_message)
 
-            post_exte_asset(id)
+            data_set = data.get_exte_assets(id)
+
+            old_rarity = None
+            send_message = ''
+
+            for x in data_set:
+                rarity = x['rarity']
+                name = x['name']
+                id = x['id']
+                lv = x['lv']
+
+                if not old_rarity == rarity:
+                    send_message = send_message + '\n----------\n{0}\n----------'.format(rarity)
+
+                old_rarity = rarity
+                send_message = send_message + '\n  {0} Lv.{1} '.format(name, lv)
+
+                if 1800 < len(send_message):
+                    await message.channel.send(send_message)
+                    send_message = ''
+
+            await message.channel.send(send_message)
 
             send_message = '取ってきました！'
             await message.channel.send(send_message)
