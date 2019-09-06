@@ -6,7 +6,7 @@ import get_data
 
 # 自分のBotのアクセストークンに置き換えてください
 TOKEN = 'NTM4NjExOTg0NjgyMzE5ODgy.XXC-OQ.IRFI3isZYCu32hSXx54UHE-keTw'
-ENABLE_CH = ['618639034490552340']
+ENABLE_CH = [618639034490552340]
 
 # 接続に必要なオブジェクトを生成
 client = discord.Client()
