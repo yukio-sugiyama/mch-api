@@ -12,7 +12,7 @@ ENABLE_CH = ['618639034490552340']
 client = discord.Client()
 data = get_data.GetData()
 
-def post_hero_asset(id)
+def post_hero_asset(id):
     data_set = data.get_hero_assets(id)
 
     old_rarity = None
@@ -36,7 +36,7 @@ def post_hero_asset(id)
 
     await message.channel.send(send_message)
 
-def post_exte_asset(id)
+def post_exte_asset(id):
     data_set = data.get_exte_assets(id)
 
     old_rarity = None
