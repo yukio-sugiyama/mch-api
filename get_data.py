@@ -1,8 +1,8 @@
 import datetime
 
-import mch_apis
-import mch_hero
-import mch_exte
+from . import mch_apis
+from . import mch_hero
+from . import mch_exte
 
 class GetData:
 
