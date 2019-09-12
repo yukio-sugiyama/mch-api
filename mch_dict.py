@@ -1,6 +1,7 @@
-import mch_apis
 import time
 from pprint import pprint
+
+from . import mch_apis
 
 mch = mch_apis.MCHAPI()
 
