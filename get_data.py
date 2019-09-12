@@ -111,47 +111,23 @@ class GetData:
 
         for id in hero_ids:
 
-            start = time.time() #計測用
-            hero_metadata = self.get_hero_metadata(id)
-            elapsed_time = time.time() - start #計測用
-            print ("elapsed_time1:{0}".format(elapsed_time) + "[sec]") #計測用
-            start = time.time() #計測用
+            hero_metadata = self.get_hero_metadata(id) #遅い
             self.hero.set_data(hero_metadata)
-            elapsed_time = time.time() - start #計測用
-            print ("elapsed_time2:{0}".format(elapsed_time) + "[sec]") #計測用
 
-            start = time.time() #計測用
             type = self.hero.get_type()
-            elapsed_time = time.time() - start #計測用
-            print ("elapsed_time3:{0}".format(elapsed_time) + "[sec]") #計測用
 
-            start = time.time() #計測用
-            hero_type_metadata = self.get_hero_type_metadata(type)
-            elapsed_time = time.time() - start #計測用
-            print ("elapsed_time4:{0}".format(elapsed_time) + "[sec]") #計測用
-            start = time.time() #計測用
+            hero_type_metadata = self.get_hero_type_metadata(type) #遅い
             self.hero.set_type_data(hero_type_metadata)
-            elapsed_time = time.time() - start #計測用
-            print ("elapsed_time5:{0}".format(elapsed_time) + "[sec]") #計測用
 
-            start = time.time() #計測用
             rarity = self.hero.get_rarity()
             name = self.hero.get_name_ja()
             id = self.hero.get_id()
             lv = self.hero.get_lv()
             url = self.hero.get_url()
-            elapsed_time = time.time() - start #計測用
-            print ("elapsed_time6:{0}".format(elapsed_time) + "[sec]") #計測用
 
-            start = time.time() #計測用
             hero_data = {'rarity':rarity, 'name':name, 'id':id, 'lv':lv, 'url':url}
-            elapsed_time = time.time() - start #計測用
-            print ("elapsed_time7:{0}".format(elapsed_time) + "[sec]") #計測用
 
-            start = time.time() #計測用
             hero_data_set.append(hero_data)
-            elapsed_time = time.time() - start #計測用
-            print ("elapsed_time8:{0}".format(elapsed_time) + "[sec]") #計測用
 
         return hero_data_set
 
