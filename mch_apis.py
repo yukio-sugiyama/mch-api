@@ -27,7 +27,7 @@ class MCHAPI:
 
         # logger set
         # Prints logger info to terminal
-        self.logger = logging.getLogger()
+        self.logger = logging.getLogger(__name__)
         self.logger.setLevel(logging.INFO)  # Change this to DEBUG if you want a lot more info
         self.ch = logging.StreamHandler()
         # create formatter

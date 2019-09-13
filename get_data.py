@@ -1,4 +1,5 @@
 import datetime
+import time
 
 from . import mch_apis
 from . import mch_hero
@@ -110,12 +111,12 @@ class GetData:
 
         for id in hero_ids:
 
-            hero_metadata = self.get_hero_metadata(id)
+            hero_metadata = self.get_hero_metadata(id) #遅い
             self.hero.set_data(hero_metadata)
 
             type = self.hero.get_type()
 
-            hero_type_metadata = self.get_hero_type_metadata(type)
+            hero_type_metadata = self.get_hero_type_metadata(type) #遅い
             self.hero.set_type_data(hero_type_metadata)
 
             rarity = self.hero.get_rarity()
