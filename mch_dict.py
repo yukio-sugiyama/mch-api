@@ -97,7 +97,6 @@ def make_dict(type, head, imple, rarity, nrarity, skip):
             d['name_zh'] = meta['name']['zh']
             d['rarity'] = rarity
             d['nrarity'] = nrarity
-            d['issued'] = meta['issued']
             return_d[id] = d
 
     return return_d
