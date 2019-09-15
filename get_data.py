@@ -116,16 +116,17 @@ class GetData:
 
             type = self.hero.get_type()
 
-            hero_type_metadata = self.get_hero_type_metadata(type) #遅い
-            self.hero.set_type_data(hero_type_metadata)
+#            hero_type_metadata = self.get_hero_type_metadata(type) #遅い
+#            self.hero.set_type_data(hero_type_metadata)
 
             rarity = self.hero.get_rarity()
-            name = self.hero.get_name_ja()
+#            name = self.hero.get_name_ja()
             id = self.hero.get_id()
             lv = self.hero.get_lv()
             url = self.hero.get_url()
 
-            hero_data = {'rarity':rarity, 'name':name, 'id':id, 'lv':lv, 'url':url}
+#            hero_data = {'rarity':rarity, 'name':name, 'id':id, 'lv':lv, 'url':url}
+            hero_data = {'rarity':rarity, 'type':type, 'id':id, 'lv':lv, 'url':url}
 
             hero_data_set.append(hero_data)
 
@@ -143,16 +144,17 @@ class GetData:
 
             type = self.exte.get_type()
 
-            exte_type_metadata = self.get_exte_type_metadata(type)
-            self.exte.set_type_data(exte_type_metadata)
+#            exte_type_metadata = self.get_exte_type_metadata(type)
+#            self.exte.set_type_data(exte_type_metadata)
 
             rarity = self.exte.get_rarity()
-            name = self.exte.get_name_ja()
+#            name = self.exte.get_name_ja()
             id = self.exte.get_id()
             lv = self.exte.get_lv()
             url = self.exte.get_url()
 
-            exte_data = {'rarity':rarity, 'name':name, 'id':id, 'lv':lv, 'url':url}
+#            exte_data = {'rarity':rarity, 'name':name, 'id':id, 'lv':lv, 'url':url}
+            exte_data = {'rarity':rarity, 'type':type, 'id':id, 'lv':lv, 'url':url}
 
             exte_data_set.append(exte_data)
 
