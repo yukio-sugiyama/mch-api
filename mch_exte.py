@@ -54,3 +54,10 @@ class MCHExteData:
             return None
         else:
             return self.type_data['name']['ja']
+
+
+    def get_type_rarity(self):
+        if self.type_data is None:
+            return None
+        else:
+            return self.type_data['rarity']
