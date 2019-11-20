@@ -43,7 +43,10 @@ class MCHAPI:
         try:
             req = self.hero_metadata + str(id)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -56,7 +59,10 @@ class MCHAPI:
         try:
             req = self.hero_type_metadata + str(id)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -69,7 +75,10 @@ class MCHAPI:
         try:
             req = self.extension_metadata + str(id)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -82,7 +91,10 @@ class MCHAPI:
         try:
             req = self.extension_type_metadata + str(id)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -95,7 +107,10 @@ class MCHAPI:
         try:
             req = self.skill_metadata + str(id)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -108,7 +123,10 @@ class MCHAPI:
         try:
             req = self.referral_history + str(address)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -121,7 +139,10 @@ class MCHAPI:
         try:
             req = self.hero_asset + str(address)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -134,7 +155,10 @@ class MCHAPI:
         try:
             req = self.extension_asset + str(address)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -149,7 +173,10 @@ class MCHAPI:
         try:
             req = self.user_info + str(id)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -162,7 +189,10 @@ class MCHAPI:
         try:
             req = self.land_info + str(id)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -175,7 +205,10 @@ class MCHAPI:
         try:
             req = self.hero_asset_info + str(id)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
@@ -188,7 +221,10 @@ class MCHAPI:
         try:
             req = self.extension_asset_info + str(id)
             res = requests.get(req)
-            res.raise_for_status()
+            if res.status_code == 404:
+                return None
+            else:
+                res.raise_for_status()
             return res.json()
         except Exception as e:
             self.logger.error(e)
