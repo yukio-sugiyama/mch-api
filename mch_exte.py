@@ -14,13 +14,6 @@ class MCHExteData:
         self.type_data = metadata
 
 
-    def get_id(self):
-        if self.data is None:
-            return None
-        else:
-            return self.data['attributes']['id']
-
-
     def get_lv(self):
         if self.data is None:
             return None
