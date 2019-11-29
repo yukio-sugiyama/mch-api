@@ -110,7 +110,6 @@ class GetData:
         hero_data_set = []
 
         for id in hero_ids:
-
             hero_metadata = self.get_hero_metadata(id) #遅い
             self.hero.set_data(hero_metadata)
 
@@ -121,7 +120,6 @@ class GetData:
 
             rarity = self.hero.get_rarity()
 #            name = self.hero.get_name_ja()
-            id = self.hero.get_id()
             lv = self.hero.get_lv()
             url = self.hero.get_url()
 
@@ -148,7 +146,6 @@ class GetData:
 
             rarity = self.exte.get_rarity()
 #            name = self.exte.get_name_ja()
-            id = self.exte.get_id()
             lv = self.exte.get_lv()
             url = self.exte.get_url()
 
